@@ -3,158 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Game Boy Website</title>
+  <title>Capstone Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background-color: #c0c0c0;
-      font-family: 'Press Start 2P', cursive;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .gameboy {
-      width: 400px;
-      height: 650px;
-      background: #dcdcdc;
-      border: 10px solid #999;
-      border-radius: 30px;
-      position: relative;
-      padding: 30px;
-      box-shadow: inset -5px -5px 10px #bbb, inset 5px 5px 10px #eee;
-    }
-
-    .screen {
-      width: 90%;
-      height: 200px;
-      background: #88c070;
-      margin: 0 auto;
-      border: 10px inset #444;
-      color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-      text-align: center;
-      line-height: 1.5;
-      font-family: 'Press Start 2P', cursive;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 40px;
-    }
-
-    .button {
-      background: #444;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 10px;
-      cursor: pointer;
-      box-shadow: 2px 2px 5px #333;
-      user-select: none;
-    }
-
-    .button:active {
-      background: #222;
-    }
-
-    .dpad {
-      position: absolute;
-      bottom: 100px;
-      left: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .dpad .line {
-      width: 20px;
-      height: 60px;
-      background: #333;
-    }
-
-    .dpad .horizontal {
-      position: absolute;
-      width: 60px;
-      height: 20px;
-      background: #333;
-      top: 20px;
-      left: -20px;
-    }
-
-    .speaker {
-      position: absolute;
-      bottom: 30px;
-      right: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .speaker div {
-      width: 50px;
-      height: 5px;
-      background: #666;
-      border-radius: 2px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="gameboy">
-  <div class="screen" id="screen">Welcome to my retro site!</div>
-
-  <div class="buttons">
-    <div class="button" onclick="prevText()">←</div>
-    <div class="button" onclick="nextText()">→</div>
+<div class="bmo">
+  <div class="screen" id="screen">
+    <img id="bmoFace" src="images/face.png" alt="BMO face">
+    <div id="screenText">Hello! I'm BMO!</div>
   </div>
-
+  
   <div class="dpad">
-    <div class="line"></div>
-    <div class="horizontal"></div>
+    <div class="up" onclick="scrollUp()"></div>
+    <div class="down" onclick="scrollDown()"></div>
+    <div class="left" onclick="prevText()"></div>
+    <div class="right" onclick="nextText()"></div>
   </div>
 
-  <div class="speaker">
-    <div></div><div></div><div></div><div></div><div></div>
+  <div class="a-b-buttons">
+    <div class="ab-button" onclick="prevText()">B</div>
+    <div class="ab-button" onclick="nextText()">A</div>
   </div>
+
+  <div class="start-select">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="oval-button" onclick="startBMO()"></div>
+      <span style="font-size: 10px; margin-top: 4px;">START</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="oval-button"></div>
+      <span style="font-size: 10px; margin-top: 4px;">SELECT</span>
+    </div>
+  </div>
+
+  <div class="bmo-label">BMO</div>
 </div>
 
-<script>
-  const messages = [
-    "Welcome to my retro site!",
-    "This is a Game Boy-themed portfolio.",
-    "Click → to see more!",
-    "Coded with ❤️ and pixels.",
-    "Thanks for visiting!"
-  ];
-
-  let currentIndex = 0;
-  const screen = document.getElementById("screen");
-
-  function updateScreen() {
-    screen.textContent = messages[currentIndex];
-  }
-
-  function nextText() {
-    currentIndex = (currentIndex + 1) % messages.length;
-    updateScreen();
-  }
-
-  function prevText() {
-    currentIndex = (currentIndex - 1 + messages.length) % messages.length;
-    updateScreen();
-  }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

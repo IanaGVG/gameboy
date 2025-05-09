@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    background: url('images/adven.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .bmo {
+    width: 600px;
+    height: 900px;
+    background: #50c7b2;
+    border: 12px solid #348c7a;
+    border-radius: 40px;
+    position: relative;
+    padding: 40px;
+    box-shadow: inset -6px -6px 12px #40ad98, inset 6px 6px 12px #68e6ce;
+    animation: float 3s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .screen {
+    width: 90%;
+    height: 300px;
+    background: black; /* Initially black for the face */
+    border: 10px solid #3b5e49;
+    color: black;
+    font-size: 24px;
+    text-align: left;
+    line-height: 1.5;
+    margin-bottom: 60px;
+    padding: 10px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+  
+  .screenWithText {
+    background: #ffffff; /* Change to white when showing text */
+    color: black; /* Ensure text color is black */
+  }
+  
+  #bmoFace {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    display: none; /* Hidden initially */
+  }
+  
+  #screenText {
+    position: relative;
+    z-index: 1;
+    display: none; /* Hidden initially */
+    color: black;
+  }
+  
+  .dpad {
+    position: absolute;
+    left: 60px;
+    bottom: 200px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dpad div {
+    position: absolute;
+    background: #ffdd57;
+  }
+  
+  .dpad div:hover {
+    background: #e6c200;
+    cursor: pointer;
+  }
+  
+  .up, .down {
+    width: 50px;
+    height: 100px;
+  }
+  
+  .left, .right {
+    width: 100px;
+    height: 50px;
+  }
+  
+  .up    { top: 0; }
+  .down  { bottom: 0; }
+  .left  { left: 0; }
+  .right { right: 0; }
+  
+  .a-b-buttons {
+    position: absolute;
+    right: 60px;
+    bottom: 160px;
+    display: flex;
+    gap: 40px;
+  }
+  
+  .ab-button {
+    background: #800020;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    font-family: 'Press Start 2P', cursive;
+    user-select: none;
+  }
+  
+  .ab-button:active {
+    background: #4d0013;
+  }
+  
+  .start-select {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+  }
+  
+  .oval-button {
+    width: 60px;
+    height: 20px;
+    background: #555;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px #333;
+    cursor: pointer;
+  }
+  
+  .bmo-label {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    color: #2f6e5f;
+    font-size: 20px;
+    font-family: monospace;
+    letter-spacing: 2px;
+  }
+  
